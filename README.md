@@ -34,7 +34,7 @@ Run the following to run gauge tests from maven. The entry point command for `su
 docker-compose run sut test
 ```
 
-The above is equivalent to running `maven test`
+The above is equivalent to running `mvn test`
 
 ## Contributing
 
