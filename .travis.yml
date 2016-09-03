@@ -1,0 +1,17 @@
+language: node_js
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - docker build -t web .
+  - docker run -d --name web web
+  - sleep 5
+
+script:
+  - docker exec web /bin/sh -c "cd /usr/src/app && npm run test"
+
+branches:
+  only:
+    - master
