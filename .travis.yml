@@ -10,7 +10,7 @@ before_script:
   - sleep 5
 
 script:
-  - docker exec web /bin/sh -c "cd /usr/src/app && npm run test"
+  - docker exec dockergaugecd_web_1 /bin/sh -c "cd /usr/src/app && npm run test"
   - docker-compose run sut test
 
 branches:
