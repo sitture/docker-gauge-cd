@@ -9,6 +9,10 @@ before_script:
   - docker-compose up -d
   - sleep 5
 
+cache:
+  directories:
+  - $HOME/.m2
+
 script:
   - docker exec dockergaugecd_web_1 /bin/sh -c "cd /usr/src/app && npm run test"
   - docker-compose run sut test
