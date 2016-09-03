@@ -331,14 +331,13 @@ public class BrowserUtils {
 	
 	public void maximizeBrowserWindow(WebDriver driver) {
 		if (driver instanceof PhantomJSDriver) {
-		java.awt.Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		Point position = new Point(0, 0);
-		driver.manage().window().setPosition(position);
-		Dimension maximizedScreenSize =
-		    new Dimension((int) screenSize.getWidth(), (int) screenSize.getHeight());
-		driver.manage().window().setSize(maximizedScreenSize);
-		} else {
 			driver.manage().window().maximize();
+		} else {
+			java.awt.Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			Point position = new Point(0, 0);
+			driver.manage().window().setPosition(position);
+			Dimension maximizedScreenSize = new Dimension((int) screenSize.getWidth(), (int) screenSize.getHeight());
+			driver.manage().window().setSize(maximizedScreenSize);
 		}
 		waitFor(500);
 	}
