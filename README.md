@@ -18,7 +18,7 @@ docker-compose build
 docker-compose up -d
 ```
 
-The above will bring up both the `web` app at `http://localhost:8080` and `sut` will compile the maven based gauge project and exit.
+The above will bring up both the `web` container at `http://localhost:8080` and `sut` container will compile the maven based gauge project and exit.
 
 ## Gauge Container
 
