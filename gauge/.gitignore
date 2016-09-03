@@ -1,0 +1,17 @@
+# Don't version gauge generated files
+reports/
+html-report/
+xml-report/
+out/
+logs/
+gauge_bin/
+libs/
+.idea
+.gauge
+.settings
+.project
+.gradle
+.classpath
+*.iml
+target/
+resources/drivers/

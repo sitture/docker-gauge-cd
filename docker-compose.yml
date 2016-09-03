@@ -1,0 +1,12 @@
+sut:
+    build: ./gauge
+    container_name: web-sut
+    links:
+        - web
+    environment:
+        - BASE_URL=http://web:8080
+
+web:
+  build: .
+  ports:
+    - "8080:8080"
