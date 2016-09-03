@@ -6,8 +6,8 @@ services:
 
 before_script:
   - docker-compose build
-  - docker-compose up
-  - sleep 10
+  - docker-compose up -d
+  - sleep 5
 
 script:
   - docker exec web /bin/sh -c "cd /usr/src/app && npm run test"
