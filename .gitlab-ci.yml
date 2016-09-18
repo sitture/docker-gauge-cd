@@ -1,0 +1,27 @@
+variables:
+  DOCKER_IMAGE_URL: registry.gitlab.com/sheikhh/docker-cd-seed
+  DOCKER_REGISTRY: registry.gitlab.com
+  DOCKER_USER: gitlab-ci-token
+  DOCKER_PASS: $CI_BUILD_TOKEN
+
+stages:
+  - pre-build
+  - test
+  - build
+  - deploy
+
+build:image:
+  stage: pre-build
+  image: docker:git
+    services:
+    - docker:dind
+  script:
+    - docker login -u $DOCKER_USER -p $DOCKER_PASS $DOCKER_REGISTRY
+    - docker build -t $DOCKER_IMAGE_URL:latest .
+    - docker push $DOCKER_IMAGE_URL:latest
+
+test:web:npm:
+  image: $DOCKER_IMAGE_URL:latest
+  stage: test
+  script:
+    - cd /usr/src/app && npm run test

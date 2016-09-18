@@ -1,0 +1,8 @@
+web:
+  volumes:
+    - ".:/usr/src/app"
+    - "/usr/src/app/node_modules"
+  command:
+    - bash
+    - -c
+    - 'npm install && npm start'
