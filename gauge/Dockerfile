@@ -34,7 +34,11 @@ COPY . /usr/src/app/functional
 WORKDIR /usr/src/app/functional
 
 # install gauge plugins
-RUN gauge --install-all
+RUN gauge telemetry off && \
+  gauge install java && \
+  gauge install html-report && \
+  gauge install screenshot && \
+  gauge install xml-report
 
 # install the maven project
 RUN mvn clean install -Pdocker
