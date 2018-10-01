@@ -15,7 +15,7 @@ cache:
 
 script:
   - docker exec dockergaugecd_web_1 /bin/sh -c "cd /usr/src/app && npm run test"
-  - docker-compose run sut test
+  - docker-compose up sut
 
 branches:
   only:

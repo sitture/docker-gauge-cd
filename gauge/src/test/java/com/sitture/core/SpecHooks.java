@@ -4,12 +4,12 @@ import org.openqa.selenium.WebDriver;
 
 import com.thoughtworks.gauge.AfterSuite;
 import com.thoughtworks.gauge.BeforeSuite;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 public class SpecHooks {
 
 	private static WebDriver driver;
-	private Utilities utilities = new Utilities();
-	
+
 	public static WebDriver getDriver() {
 		return driver;
 	}
@@ -20,12 +20,15 @@ public class SpecHooks {
 	
 	@BeforeSuite
 	public void setupSuite() {
-		utilities.initDesktopBrowser();
+		driver = new HtmlUnitDriver();
+		setDriver(driver);
 	}
 
 	@AfterSuite
 	public void tearDownSuite() {
-		utilities.closeBrowser(getDriver());
+		if (null != getDriver()) {
+			getDriver().quit();
+		}
 	}
 	
 }

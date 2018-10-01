@@ -1,6 +1,6 @@
 package com.sitture.core;
 
-public class Utilities extends BrowserUtils {
+public class Utilities {
 	
 	/**
 	 * 
