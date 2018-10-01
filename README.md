@@ -3,7 +3,7 @@
 
 An example project to run gauge-java tests within a container when main web application is also a docker container.
 
-The project uses this simple [docker-cd-seed](https://github.com/sitture/docker-cd-seed) application and runs `gauge-java` tests from a docker container.
+The project uses this simple [sitture/docker-cd-seed](https://github.com/sitture/docker-cd-seed) application and runs `gauge-java` tests from a docker container.
 
 ## Prerequisite
 
@@ -22,11 +22,7 @@ The above will bring up both the `web` container at `http://localhost:8080` and 
 
 ## Gauge Container
 
-To build/run the gauge container `sut` itself.
-
-```bash
-docker-compose build sut
-```
+The gauge container `sut` is run from an existing docker-gauge image from Hub. See [sitture/docker-gauge-java](https://github.com/sitture/docker-gauge-java).
 
 Run the following to run gauge tests from maven. The entry point command for `sut` container is `mvn`.
 
