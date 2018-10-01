@@ -31,7 +31,7 @@ public class BrowserUtils {
 		// check if the property was found
 		if (null == browserLocation) {
 			// Try to get 'browser.location' property from the env/browser.properties
-			browserLocation = System.getenv("browser.location");
+			browserLocation = System.getenv("BROWSER_LOCATION");
 			// if browser.location is null, then just set to default
 			if (null == browserLocation) {
 				browserLocation = defaultBrowserLocation;
@@ -294,30 +294,6 @@ public class BrowserUtils {
 		if (isMac() && browser.equalsIgnoreCase(CHROME)) {
 			maximizeBrowserWindow(driver);
 		}
-		return driver;
-	}
-	
-	/**
-	 * Initialise a browser, emulated if chrome or resized window if firefox.
-	 * @return driver
-	 */
-	public WebDriver initMobileBrowser() {
-		WebDriver driver = SpecHooks.getDriver();
-		String browser = getBrowserName();
-		// Check if browser name isn't chrome 
-		// then just resize the window to mobile size
-		if (!browser.equalsIgnoreCase(CHROME)
-				&& null != driver) {
-			driver.manage().window().setSize(new Dimension(360, 640));
-			waitFor(500);
-			return driver;
-		}
-		// if browser property is chrome
-		// then close existing and instantiate a new browser
-		closeBrowser(driver);
-		driver = initChromeBrowser(true);
-		SpecHooks.setDriver(driver);
-		waitFor(500);
 		return driver;
 	}
 	
