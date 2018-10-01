@@ -2,9 +2,12 @@ sut:
   image: sitture/docker-gauge-java:latest
   container_name: web-sut
   links:
-      - web
+    - web
   environment:
-      - BASE_URL=http://web:8080
+    - BASE_URL=http://web:8080
+  volumes:
+    - './gauge:/usr/src/app'
+  command: mvn clean test
 
 web:
   build: .
