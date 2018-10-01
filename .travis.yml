@@ -6,7 +6,7 @@ services:
 
 before_script:
   - docker-compose build
-  - docker-compose up web -d
+  - docker-compose up -d
   - sleep 5
 
 cache:
