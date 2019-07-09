@@ -9,7 +9,7 @@ public class HomepageSpec extends BaseSpec {
 
 	private final static Logger log = Logger.getLogger(HomepageSpec.class);
 
-	@Step({"Goto Homepage", "Goto Homepage"})
+	@Step("Goto Homepage")
 	public void gotoHomepage() {
 		log.info("Navigating to homepage");
 		driver.get(utilities.getBaseUrl());
